@@ -119,7 +119,7 @@
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Button>
-                <Button fx:id="Modulo" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" stylesheets="@../myCSS.css" text="\%">
+                <Button fx:id="Modulo" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" stylesheets="@../myCSS.css" text="Mod">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
