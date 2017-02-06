@@ -75,6 +75,30 @@ public class FXMLDocumentController implements Initializable {
     private Button ClearResults;
 
     @FXML
+    private Button decimal;
+
+    @FXML
+    private Button PlusMinus;
+
+    @FXML
+    private Button Modulo;
+
+    @FXML
+    private Button SQROOT;
+
+    @FXML
+    private Button X2;
+
+    @FXML
+    private Button fraction;
+
+    @FXML
+    private Button CE;
+
+    @FXML
+    private Button delete;
+
+    @FXML
     private TextField display;
 
     @FXML
@@ -108,6 +132,9 @@ public class FXMLDocumentController implements Initializable {
 
         } else if (event.getSource() == zero) {
             display.setText(display.getText() + "0");
+
+        } else if (event.getSource() == decimal) {
+            display.setText(display.getText() + ".");
 
         } else if (event.getSource() == plus) {
             data = Float.parseFloat(display.getText());
