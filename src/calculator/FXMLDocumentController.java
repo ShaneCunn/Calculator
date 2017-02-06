@@ -179,7 +179,7 @@ public class FXMLDocumentController implements Initializable {
             display.setText(String.valueOf(answer));
 
         } else if (event.getSource() == delete) {
-            data = Double.parseDouble(display.getText());           
+            data = Double.parseDouble(display.getText());
             display.setText(String.valueOf(data).substring(0, display.getLength() - 1));
         } else if (event.getSource() == equalButton) {
 
