@@ -168,11 +168,15 @@ public class FXMLDocumentController implements Initializable {
 
         } else if (event.getSource() == X2) {
             data = Double.parseDouble(display.getText());
-            operation = 5; // squared oor the power of
+            operation = 5; // squared or the powerof
             int i = 2;
             double answer = Math.pow(data, i);
             display.setText(String.valueOf(answer));
 
+        } else if (event.getSource() == fraction) {
+            data = Double.parseDouble(display.getText());
+            double answer = 1 / data;
+            display.setText(String.valueOf(answer));
         } else if (event.getSource() == equalButton) {
 
             double secondOperand = Double.parseDouble(display.getText());
