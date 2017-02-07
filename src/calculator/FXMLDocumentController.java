@@ -103,20 +103,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void handleButtonAction(ActionEvent event) {
-        if (event.getSource() == one) {
+        if (event.getSource() == one) { // on click listener add one to display
             display.setText(display.getText() + "1");
 
         } else if (event.getSource() == two) {
-            display.setText(display.getText() + "2");
+            display.setText(display.getText() + "2");// on click listener add one to display
 
         } else if (event.getSource() == three) {
-            display.setText(display.getText() + "3");
+            display.setText(display.getText() + "3");// on click listener add 2 to display
 
         } else if (event.getSource() == four) {
-            display.setText(display.getText() + "4");
+            display.setText(display.getText() + "4");// on click listener add 3 to display
 
         } else if (event.getSource() == five) {
-            display.setText(display.getText() + "5");
+            display.setText(display.getText() + "5");// on click listener add 4 to display
 
         } else if (event.getSource() == six) {
             display.setText(display.getText() + "6");
@@ -137,8 +137,8 @@ public class FXMLDocumentController implements Initializable {
             display.setText(display.getText() + ".");
 
         } else if (event.getSource() == plus) {
-            data = Double.parseDouble(display.getText());
-            operation = 1; // addition
+            data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
+            operation = 1; // sent it to a switch statement , which does addition
             display.setText("");
         } else if (event.getSource() == minus) {
             data = Double.parseDouble(display.getText());
@@ -162,15 +162,13 @@ public class FXMLDocumentController implements Initializable {
 
         } else if (event.getSource() == SQROOT) {
             data = Double.parseDouble(display.getText());
-            operation = 6;// Square root
-            double answer = Math.sqrt(data);
-            display.setText(String.valueOf(answer));
+            double answer = Math.sqrt(data); // calls the  math square root and pass in data var as parameter
+            display.setText(String.valueOf(answer)); //  set the display value to equal answer
 
         } else if (event.getSource() == X2) {
             data = Double.parseDouble(display.getText());
-            operation = 5; // squared or the powerof
             int i = 2;
-            double answer = Math.pow(data, i);
+            double answer = Math.pow(data, i);  // calls the  math  powerof and pass in data var as parameter and i 
             display.setText(String.valueOf(answer));
 
         } else if (event.getSource() == fraction) {
@@ -183,12 +181,12 @@ public class FXMLDocumentController implements Initializable {
             display.setText(String.valueOf(data).substring(0, display.getLength() - 1));
         } else if (event.getSource() == equalButton) {
 
-            double secondOperand = Double.parseDouble(display.getText());
+            double secondOperand = Double.parseDouble(display.getText()); // get the display value and add it to the var secondoperand
 
             switch (operation) {
                 case 1: // addition
-                    double answer = data + secondOperand;
-                    display.setText(String.valueOf(answer));
+                    double answer = data + secondOperand;  // adds the 2 vars together
+                    display.setText(String.valueOf(answer)); // sets the display text to the value of answer
                     break;
 
                 case 2: // minus
@@ -202,9 +200,9 @@ public class FXMLDocumentController implements Initializable {
                     break;
 
                 case 4: //divide
-                    answer = 0f;
+                    answer = 0;
 
-                    try {
+                    try { // try catch to protect against divide by zero
                         answer = data / secondOperand;
 
                     } catch (Exception e) {
@@ -215,14 +213,14 @@ public class FXMLDocumentController implements Initializable {
                     break;
 
                 case 5: // modulus
-                    answer = data % secondOperand;
+                    answer = data % secondOperand; // does modulus on the 2 vars and set the value to equal that
                     display.setText(String.valueOf(answer));
                     break;
 //              
             }
 
         } else if (event.getSource() == ClearResults) {
-            display.setText("");
+            display.setText(""); // clears the displaytext 
             data = 0.0;
 
         }
