@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 public class FXMLDocumentController implements Initializable {
 
     Double data = 0.0;
+    double secondOperand = 0;
     int operation = -1;
 
     @FXML
@@ -133,6 +134,9 @@ public class FXMLDocumentController implements Initializable {
         } else if (event.getSource() == zero) {
             display.setText(display.getText() + "0");
 
+            /*
+            Functiions, divide, addition, substraction, multi, PlusMinus    
+             */
         } else if (event.getSource() == decimal) {
             display.setText(display.getText() + ".");
 
@@ -148,14 +152,23 @@ public class FXMLDocumentController implements Initializable {
         } else if (event.getSource() == multi) {
             data = Double.parseDouble(display.getText());
             operation = 3; // multi
-            display.setText("");
+            display.setText("x");
 
         } else if (event.getSource() == divide) {
             data = Double.parseDouble(display.getText());
             operation = 4; // divide
             display.setText("");
 
-        } else if (event.getSource() == Modulo) {
+        } else if (event.getSource() == PlusMinus) {
+            data = Double.parseDouble(display.getText());
+            double answer = data * -1; // calls the  math square root and pass in data var as parameter
+            display.setText(String.valueOf(answer)); //  set the display value to equal answer
+        } 
+        
+        /*
+        functions : square root, modulus, powerof, fraction,
+        */ 
+        else if (event.getSource() == Modulo) {
             data = Double.parseDouble(display.getText());
             operation = 5; // modulus
             display.setText("");
@@ -175,13 +188,24 @@ public class FXMLDocumentController implements Initializable {
             data = Double.parseDouble(display.getText());
             double answer = 1 / data;
             display.setText(String.valueOf(answer));
-
+            /*
+            functions : delete, Clear entry, , Clear
+             */
         } else if (event.getSource() == delete) {
             data = Double.parseDouble(display.getText());
             display.setText(String.valueOf(data).substring(0, display.getLength() - 1));
-        } else if (event.getSource() == equalButton) {
+        } else if (event.getSource() == ClearResults) {
+            display.setText(""); // clears the displaytext 
+            data = 0.0;
+            secondOperand = 0.0;
+        } else if (event.getSource() == CE) {
+            display.setText(""); // clears the displaytext 
+            data = 0.0;
 
-            double secondOperand = Double.parseDouble(display.getText()); // get the display value and add it to the var secondoperand
+        } else if (event.getSource()
+                == equalButton) {
+
+            secondOperand = Double.parseDouble(display.getText()); // get the display value and add it to the var secondoperand
 
             switch (operation) {
                 case 1: // addition
@@ -218,10 +242,6 @@ public class FXMLDocumentController implements Initializable {
                     break;
 //              
             }
-
-        } else if (event.getSource() == ClearResults) {
-            display.setText(""); // clears the displaytext 
-            data = 0.0;
 
         }
     }
