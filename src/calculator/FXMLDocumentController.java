@@ -103,6 +103,9 @@ public class FXMLDocumentController implements Initializable {
     private TextField display;
 
     @FXML
+    private TextField displayTop;
+
+    @FXML
     void handleButtonAction(ActionEvent event) {
         if (event.getSource() == one) { // on click listener add one to display
             display.setText(display.getText() + "1");
@@ -142,20 +145,24 @@ public class FXMLDocumentController implements Initializable {
 
         } else if (event.getSource() == plus) {
             data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
+            displayTop.setText(data + " +");
             operation = 1; // sent it to a switch statement , which does addition
             display.setText("");
         } else if (event.getSource() == minus) {
             data = Double.parseDouble(display.getText());
+            displayTop.setText(data + " -");
             operation = 2; // minus
             display.setText("");
 
         } else if (event.getSource() == multi) {
             data = Double.parseDouble(display.getText());
+            displayTop.setText(data + " x");
             operation = 3; // multi
-            display.setText("x");
+            display.setText("");
 
         } else if (event.getSource() == divide) {
             data = Double.parseDouble(display.getText());
+            displayTop.setText(data + " ÷");
             operation = 4; // divide
             display.setText("");
 
@@ -163,12 +170,9 @@ public class FXMLDocumentController implements Initializable {
             data = Double.parseDouble(display.getText());
             double answer = data * -1; // calls the  math square root and pass in data var as parameter
             display.setText(String.valueOf(answer)); //  set the display value to equal answer
-        } 
-        
-        /*
+        } /*
         functions : square root, modulus, powerof, fraction,
-        */ 
-        else if (event.getSource() == Modulo) {
+         */ else if (event.getSource() == Modulo) {
             data = Double.parseDouble(display.getText());
             operation = 5; // modulus
             display.setText("");
@@ -211,16 +215,21 @@ public class FXMLDocumentController implements Initializable {
                 case 1: // addition
                     double answer = data + secondOperand;  // adds the 2 vars together
                     display.setText(String.valueOf(answer)); // sets the display text to the value of answer
+                    displayTop.setText("");
                     break;
 
                 case 2: // minus
                     answer = data - secondOperand;
                     display.setText(String.valueOf(answer));
+                    displayTop.setText("");
+
                     break;
 
                 case 3:  //multi 
                     answer = data * secondOperand;
                     display.setText(String.valueOf(answer));
+                    displayTop.setText("");
+
                     break;
 
                 case 4: //divide
@@ -239,6 +248,8 @@ public class FXMLDocumentController implements Initializable {
                 case 5: // modulus
                     answer = data % secondOperand; // does modulus on the 2 vars and set the value to equal that
                     display.setText(String.valueOf(answer));
+                    displayTop.setText("");
+
                     break;
 //              
             }

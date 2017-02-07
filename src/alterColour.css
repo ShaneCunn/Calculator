@@ -4,14 +4,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 02-Feb-2017, 13:35:24
+    Created on : 07-Feb-2017, 11:35:47
     Author     : shane
 */
 
-
 .button{
 
-    -fx-background-color: #000000;
+    -fx-background-color: #1F1F1F;
     -fx-border-radius: 0 0 0 0;
     -fx-background-radius: 0 0 0 0;
     -fx-text-fill: whitesmoke;
@@ -20,11 +19,12 @@ and open the template in the editor.
 
 .button:hover{
     -fx-text-fill: whitesmoke;
-    -fx-background-color: #1f1f1f;
+    -fx-background-color: #353535;
 
 }
 
 .text-field {
     -fx-background-color: #000000 ;
-    -fx-text-inner-color: whitesmoke;
+    -fx-text-inner-color: #4E4E4E;
+
 }
