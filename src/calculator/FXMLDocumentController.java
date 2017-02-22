@@ -6,10 +6,14 @@
 package calculator;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.TreeMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -107,102 +111,118 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void handleButtonAction(ActionEvent event) {
-        if (event.getSource() == one) { // on click listener add one to display
-            display.setText(display.getText() + "1");
 
-        } else if (event.getSource() == two) {
-            display.setText(display.getText() + "2");// on click listener add one to display
+        Node n = (Node) event.getSource();
+        String id = n.getId();
 
-        } else if (event.getSource() == three) {
-            display.setText(display.getText() + "3");// on click listener add 2 to display
+        switch (id) {
+            case "one":
+                SwitchButton(id);
+                break;
+            case "two":
+                SwitchButton(id);
+                break;
+            case "three":
+                SwitchButton(id);
+                break;
+            case "four":
+                SwitchButton(id);
+                break;
+            case "five":
+                SwitchButton(id);
+                break;
+            case "six":
+                SwitchButton(id);
+                break;
+            case "seven":
+                SwitchButton(id);
+                break;
+            case "eight":
+                SwitchButton(id);
+                break;
+            case "nine":
+                SwitchButton(id);
+                break;
+            case "zero":
+                SwitchButton(id);
+                break;
 
-        } else if (event.getSource() == four) {
-            display.setText(display.getText() + "4");// on click listener add 3 to display
+            case "decimal":
+                display.setText(display.getText() + ".");
+                break;
+        }
 
-        } else if (event.getSource() == five) {
-            display.setText(display.getText() + "5");// on click listener add 4 to display
-
-        } else if (event.getSource() == six) {
-            display.setText(display.getText() + "6");
-
-        } else if (event.getSource() == seven) {
-            display.setText(display.getText() + "7");
-
-        } else if (event.getSource() == eight) {
-            display.setText(display.getText() + "8");
-
-        } else if (event.getSource() == nine) {
-            display.setText(display.getText() + "9");
-
-        } else if (event.getSource() == zero) {
-            display.setText(display.getText() + "0");
-
-            /*
-            Functiions, divide, addition, substraction, multi, PlusMinus    
-             */
-        } else if (event.getSource() == decimal) {
-            display.setText(display.getText() + ".");
-
-        } else if (event.getSource() == plus) {
+        if (event.getSource() == plus) {
             data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
             displayTop.setText(data + " +");
             operation = 1; // sent it to a switch statement , which does addition
             display.setText("");
-        } else if (event.getSource() == minus) {
+        } else if (event.getSource()
+                == minus) {
             data = Double.parseDouble(display.getText());
             displayTop.setText(data + " -");
             operation = 2; // minus
             display.setText("");
 
-        } else if (event.getSource() == multi) {
+        } else if (event.getSource()
+                == multi) {
             data = Double.parseDouble(display.getText());
             displayTop.setText(data + " x");
             operation = 3; // multi
             display.setText("");
 
-        } else if (event.getSource() == divide) {
+        } else if (event.getSource()
+                == divide) {
             data = Double.parseDouble(display.getText());
             displayTop.setText(data + " ÷");
             operation = 4; // divide
             display.setText("");
 
-        } else if (event.getSource() == PlusMinus) {
+        } else if (event.getSource()
+                == PlusMinus) {
             data = Double.parseDouble(display.getText());
             double answer = data * -1; // calls the  math square root and pass in data var as parameter
             display.setText(String.valueOf(answer)); //  set the display value to equal answer
         } /*
         functions : square root, modulus, powerof, fraction,
-         */ else if (event.getSource() == Modulo) {
+         */ else if (event.getSource()
+                == Modulo) {
             data = Double.parseDouble(display.getText());
             operation = 5; // modulus
             display.setText("");
 
-        } else if (event.getSource() == SQROOT) {
+        } else if (event.getSource()
+                == SQROOT) {
             data = Double.parseDouble(display.getText());
             double answer = Math.sqrt(data); // calls the  math square root and pass in data var as parameter
             display.setText(String.valueOf(answer)); //  set the display value to equal answer
 
-        } else if (event.getSource() == X2) {
+        } else if (event.getSource()
+                == X2) {
             data = Double.parseDouble(display.getText());
             int i = 2;
             double answer = Math.pow(data, i);  // calls the  math  powerof and pass in data var as parameter and i 
             display.setText(String.valueOf(answer));
 
-        } else if (event.getSource() == fraction) {
+        } else if (event.getSource()
+                == fraction) {
             data = Double.parseDouble(display.getText());
             double answer = 1 / data;
             display.setText(String.valueOf(answer));
             /*
             functions : delete, Clear entry, , Clear
              */
-        } else if (event.getSource() == delete) {
+        } else if (event.getSource()
+                == delete) {
             data = Double.parseDouble(display.getText());
             display.setText(String.valueOf(data).substring(0, display.getLength() - 1));
-        } else if (event.getSource() == ClearResults) {
+        } else if (event.getSource()
+                == ClearResults) {
             display.setText(""); // clears the displaytext 
             data = 0.0;
             secondOperand = 0.0;
-        } else if (event.getSource() == CE) {
+        } else if (event.getSource()
+                == CE) {
             display.setText(""); // clears the displaytext 
             data = 0.0;
 
@@ -255,6 +275,26 @@ public class FXMLDocumentController implements Initializable {
             }
 
         }
+    }
+
+    void SwitchButton(String id) {
+
+        HashMap<String, Integer> HashNumbers = new HashMap<String, Integer>(); // create a hashmap to the button
+
+        HashNumbers.put("one", 1);
+        HashNumbers.put("two", 2);
+        HashNumbers.put("three", 3);
+        HashNumbers.put("four", 4);
+        HashNumbers.put("five", 5);
+        HashNumbers.put("six", 6);
+        HashNumbers.put("seven", 7);
+        HashNumbers.put("eight", 8);
+        HashNumbers.put("nine", 9);
+        HashNumbers.put("zero", 0);
+
+        int ButtonNumbers = HashNumbers.get(id);
+        display.setText(display.getText() + ButtonNumbers);
+
     }
 
     @Override
