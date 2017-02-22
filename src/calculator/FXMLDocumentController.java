@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -107,13 +108,31 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void handleButtonAction(ActionEvent event) {
+
+        // String id = (event.getSource()).toString();
+        //  String id2 =((Button)event.getSource()).toString();
+        /*  switch (id2) {
+            case "two":
+                display.setText(display.getText() + "2");
+                break;
+
+        }*/
+        Node n = (Node)event.getSource();
+        String id = n.getId();
+        switch(id){
+             case "two":
+                display.setText(display.getText() + "2");
+                break;
+            
+        }
         if (event.getSource() == one) { // on click listener add one to display
             display.setText(display.getText() + "1");
 
-        } else if (event.getSource() == two) {
-            display.setText(display.getText() + "2");// on click listener add one to display
-
-        } else if (event.getSource() == three) {
+        } //else if (event.getSource() == two) {
+        //            display.setText(display.getText() + "2");// on click listener add one to display
+        //
+        //  } 
+        else if (event.getSource() == three) {
             display.setText(display.getText() + "3");// on click listener add 2 to display
 
         } else if (event.getSource() == four) {

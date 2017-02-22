@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.FXMLDocumentController">
+<AnchorPane id="pane" prefHeight="431.0" prefWidth="505.0" stylesheets="@../alterColour.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.FXMLDocumentController">
     <children>
         <GridPane layoutY="159.0" prefHeight="305.0" prefWidth="505.0" AnchorPane.bottomAnchor="0.0">
             <columnConstraints>
@@ -138,27 +138,20 @@
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Button>
-                <Button fx:id="CE" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" text="CE" textFill="#e7e5e5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="CE" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" stylesheets="@../alterColour.css" text="CE" textFill="#e7e5e5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
-               <stylesheets>
-                  <URL value="@../myCSS.css" />
-                  <URL value="@../alterColour.css" />
-               </stylesheets>
                 </Button>
-                <Button fx:id="delete" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" text="DEL" textFill="#e7e5e5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="delete" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="72.0" prefWidth="134.0" stylesheets="@../alterColour.css" text="DEL" textFill="#e7e5e5" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
-               <stylesheets>
-                  <URL value="@../myCSS.css" />
-                  <URL value="@../alterColour.css" />
-               </stylesheets>
                 </Button>
             </children>
         </GridPane>
-      <TextField fx:id="displayTop" alignment="CENTER_RIGHT" editable="false" layoutY="49.0" prefHeight="28.0" prefWidth="505.0" AnchorPane.topAnchor="0.0">
+      <TextField editable="false" layoutX="318.0" prefHeight="78.0" prefWidth="187.0" />
+      <TextField fx:id="displayTop" alignment="BOTTOM_RIGHT" editable="false" layoutY="49.0" prefHeight="51.0" prefWidth="481.0" text="0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
@@ -167,7 +160,7 @@
             <URL value="@../alterColour.css" />
          </stylesheets>
       </TextField>
-        <TextField fx:id="display" alignment="CENTER_RIGHT" editable="false" layoutY="39.0" prefHeight="61.0" prefWidth="505.0" stylesheets="@../myCSS.css">
+        <TextField fx:id="display" alignment="CENTER_RIGHT" editable="false" layoutY="39.0" prefHeight="61.0" prefWidth="505.0" stylesheets="@../myCSS.css" text="0">
             <font>
                 <Font name="System Bold" size="41.0" />
             </font>
