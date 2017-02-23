@@ -17,6 +17,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 /**
  *
@@ -25,6 +28,7 @@ import javafx.scene.control.TextField;
 public class FXMLDocumentController implements Initializable {
 
     Double data = 0.0;
+
     double secondOperand = 0;
     int operation = -1;
 
@@ -109,9 +113,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField displayTop;
 
+    public FXMLDocumentController() {
+        this.data = Double.parseDouble(display.getText());
+    }
+
     @FXML
     void handleButtonAction(ActionEvent event) {
-
+        data = Double.parseDouble(display.getText());
         Node n = (Node) event.getSource();
         String id = n.getId();
 
@@ -150,56 +158,62 @@ public class FXMLDocumentController implements Initializable {
             case "decimal":
                 display.setText(display.getText() + ".");
                 break;
+
+            case "plus":
+                display.setText(display.getText() + ".");
+                break;
         }
 
         if (event.getSource() == plus) {
-            data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
+
             displayTop.setText(data + " +");
-            operation = 1; // sent it to a switch statement , which does addition
+
+            operatorButton(id, data);
+            //   operation = 1; // sent it to a switch statement , which does addition
             display.setText("");
         } else if (event.getSource()
                 == minus) {
-            data = Double.parseDouble(display.getText());
+            //  data = Double.parseDouble(display.getText());
             displayTop.setText(data + " -");
             operation = 2; // minus
             display.setText("");
 
         } else if (event.getSource()
                 == multi) {
-            data = Double.parseDouble(display.getText());
+            // data = Double.parseDouble(display.getText());
             displayTop.setText(data + " x");
             operation = 3; // multi
             display.setText("");
 
         } else if (event.getSource()
                 == divide) {
-            data = Double.parseDouble(display.getText());
+            //   data = Double.parseDouble(display.getText());
             displayTop.setText(data + " ÷");
             operation = 4; // divide
             display.setText("");
 
         } else if (event.getSource()
                 == PlusMinus) {
-            data = Double.parseDouble(display.getText());
+            //  data = Double.parseDouble(display.getText());
             double answer = data * -1; // calls the  math square root and pass in data var as parameter
             display.setText(String.valueOf(answer)); //  set the display value to equal answer
         } /*
         functions : square root, modulus, powerof, fraction,
          */ else if (event.getSource()
                 == Modulo) {
-            data = Double.parseDouble(display.getText());
+            //   data = Double.parseDouble(display.getText());
             operation = 5; // modulus
             display.setText("");
 
         } else if (event.getSource()
                 == SQROOT) {
-            data = Double.parseDouble(display.getText());
+            //  data = Double.parseDouble(display.getText());
             double answer = Math.sqrt(data); // calls the  math square root and pass in data var as parameter
             display.setText(String.valueOf(answer)); //  set the display value to equal answer
 
         } else if (event.getSource()
                 == X2) {
-            data = Double.parseDouble(display.getText());
+            //  data = Double.parseDouble(display.getText());
             int i = 2;
             double answer = Math.pow(data, i);  // calls the  math  powerof and pass in data var as parameter and i 
             display.setText(String.valueOf(answer));
@@ -275,6 +289,19 @@ public class FXMLDocumentController implements Initializable {
             }
 
         }
+
+    }
+
+    void double Calculate(String opOne, double numOne, double numTwo) {
+        if (opOne.equals("+")) {
+            return numOne + numTwo;
+        } else if (opOne.equals("-")) {
+            return numOne - numTwo;
+        } else if (opOne.equals("*")) {
+            return numOne * numTwo;
+        } else if (opOne.equals("/")) {
+            return numOne / numTwo;
+        }
     }
 
     void SwitchButton(String id) {
@@ -297,9 +324,105 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
+    void operatorButton(String oper, String test) {
+
+////          if (event.getSource() == plus) {
+////            data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
+////            displayTop.setText(data + " +");
+////            operation = 1; // sent it to a switch statement , which does addition
+//        //   display.setText("");
+//        HashMap<String, String> HashNumbers = new HashMap<String, String>(); // create a hashmap to the button
+//
+//        HashNumbers.put("plus", "+");
+//
+//        String ButtonOperator = oper;
+////        if (ButtonOperator.equals("+")) {
+////            data = Double.parseDouble(display.getText()); // parse a double from the display label and add it to the var Data
+////            double answer = data b secondOperand;  // adds the 2 vars together
+////            display.setText(String.valueOf(answer)); // sets the display text to the value of answer
+////            displayTop.setText("");
+////        }
+//        switch (ButtonOperator) {
+//
+//            case "plus":
+//                double answer = data + secondOperand;  // adds the 2 vars together
+//                break;
+//
+//        }
+//
+//        // display.setText(display.getText() + ButtonOperator);
+        HashMap<String, String> HashNumbers = new HashMap<String, String>(); // create a hashmap to the button
+        HashNumbers.put("plus", "+");
+        
+        String ButtonOperators = HashNumbers.get(oper);
+        ScriptEngineManager mgr = new ScriptEngineManager();
+        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        //  String foo = "40+2";
+
+        try {
+           // System.out.println(engine.eval(10 + ButtonNumbers + 10));
+           
+            display.setText(display.getText() + ButtonOperators;
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         // TODO
     }
 
 }
+
+//abstract class Operator {
+//
+//    public abstract Integer compute(Integer... values);
+//}
+//
+//class Plus extends Operator {
+//
+//    public Integer compute(Integer... values) {
+//        return values[0] + values[1];
+//    }
+//}
+//
+//class Minus extends Operator {
+//
+//    public Integer compute(Integer... values) {
+//        return values[0] - values[1];
+//    }
+//}
+//
+//class Multiply extends Operator {
+//
+//    public Integer compute(Integer... values) {
+//        return values[0] * values[1];
+//    }
+//}
+//class Divide extends Operator {
+//
+//    public Integer compute(Integer... values) {
+//        return values[0] / values[1];
+//    }
+//}
+//
+//Map operatorMap = createOperatorMap();
+//
+// Map createOperatorMap() {
+//  Map<String, Operator> map = new HashMap<String, Operator>();
+//  map.put("+", new Plus());
+//  map.put("-", new Minus());
+//  map.put("*", new Multiply());
+//return map;
+//}
+//
+//
+//int compute(int a, int b, String opString) {
+//  Operator op = operatorMap.get(opString);
+//  if (op == null)
+//    throw new IllegalArgumentException("Unknown operator");
+//  return op.compute(a, b);
+//}
