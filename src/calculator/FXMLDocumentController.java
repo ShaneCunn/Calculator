@@ -272,10 +272,17 @@ public class FXMLDocumentController implements Initializable {
                     break;
 //              
             }
+            
+         
 
         }
     }
-
+  static String testmethod (String tesst){
+      
+      //  display.setText(display.getText() + "3")
+             return tesst;
+                    
+                }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
