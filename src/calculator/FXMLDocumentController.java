@@ -27,139 +27,101 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Label label;
-
     @FXML
     private Button one;
-
     @FXML
     private Button two;
-
     @FXML
     private Button three;
-
     @FXML
     private Button four;
-
     @FXML
     private Button five;
-
     @FXML
     private Button six;
-
     @FXML
     private Button seven;
-
     @FXML
     private Button eight;
-
     @FXML
     private Button nine;
-
     @FXML
     private Button zero;
-
     @FXML
     private Button plus;
-
     @FXML
     private Button minus;
-
     @FXML
     private Button multi;
-
     @FXML
     private Button divide;
-
     @FXML
     private Button equalButton;
-
     @FXML
     private Button ClearResults;
-
     @FXML
     private Button decimal;
-
     @FXML
     private Button PlusMinus;
-
     @FXML
     private Button Modulo;
-
     @FXML
     private Button SQROOT;
-
     @FXML
     private Button X2;
-
     @FXML
     private Button fraction;
-
     @FXML
     private Button CE;
-
     @FXML
     private Button delete;
-
     @FXML
     private TextField display;
-
     @FXML
     private TextField displayTop;
 
     @FXML
     void handleButtonAction(ActionEvent event) {
 
-        // String id = (event.getSource()).toString();
-        //  String id2 =((Button)event.getSource()).toString();
-        /*  switch (id2) {
+        Node n = (Node) event.getSource();
+        String id = n.getId();
+        switch (id) {
+            case "one":
+                display.setText(display.getText() + "1");
+                break;
             case "two":
                 display.setText(display.getText() + "2");
                 break;
-
-        }*/
-        Node n = (Node)event.getSource();
-        String id = n.getId();
-        switch(id){
-             case "two":
-                display.setText(display.getText() + "2");
+            case "three":
+                display.setText(display.getText() + "3");
                 break;
-            
+            case "four":
+                display.setText(display.getText() + "4");
+                break;
+            case "five":
+                display.setText(display.getText() + "5");
+                break;
+            case "six":
+                display.setText(display.getText() + "6");
+                break;
+            case "seven":
+                display.setText(display.getText() + "7");
+                break;
+            case "eight":
+                display.setText(display.getText() + "8");
+                break;
+            case "nine":
+                display.setText(display.getText() + "9");
+                break;
+            case "zero":
+                display.setText(display.getText() + "0");
+                break;
+
         }
-        if (event.getSource() == one) { // on click listener add one to display
-            display.setText(display.getText() + "1");
-
-        } //else if (event.getSource() == two) {
-        //            display.setText(display.getText() + "2");// on click listener add one to display
-        //
-        //  } 
-        else if (event.getSource() == three) {
-            display.setText(display.getText() + "3");// on click listener add 2 to display
-
-        } else if (event.getSource() == four) {
-            display.setText(display.getText() + "4");// on click listener add 3 to display
-
-        } else if (event.getSource() == five) {
-            display.setText(display.getText() + "5");// on click listener add 4 to display
-
-        } else if (event.getSource() == six) {
-            display.setText(display.getText() + "6");
-
-        } else if (event.getSource() == seven) {
-            display.setText(display.getText() + "7");
-
-        } else if (event.getSource() == eight) {
-            display.setText(display.getText() + "8");
-
-        } else if (event.getSource() == nine) {
-            display.setText(display.getText() + "9");
-
-        } else if (event.getSource() == zero) {
-            display.setText(display.getText() + "0");
-
-            /*
-            Functiions, divide, addition, substraction, multi, PlusMinus    
-             */
-        } else if (event.getSource() == decimal) {
+            //Functions, divide, addition, substraction, multi, PlusMinus    
+            
+        
+        if (event.getSource() == decimal) {
             display.setText(display.getText() + ".");
 
         } else if (event.getSource() == plus) {
@@ -272,17 +234,17 @@ public class FXMLDocumentController implements Initializable {
                     break;
 //              
             }
-            
-         
 
         }
     }
-  static String testmethod (String tesst){
-      
-      //  display.setText(display.getText() + "3")
-             return tesst;
-                    
-                }
+
+    static String testmethod(String tesst) {
+
+        //  display.setText(display.getText() + "3")
+        return tesst;
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
